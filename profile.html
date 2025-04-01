@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TipTop Soles | House of Sneakers</title>
+    <link rel="icon" href="images/TipTop Soles.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome CDN for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Simple styling for the form */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>TipTop Soles | House of Sneakers</h1>
+        <p>Your go-to place for quality shoes</p>
+        <a href="index.html">
+            <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+
+        <!-- Dropdown Menu for Products -->
+        <div class="dropdown">
+            <a href="#">Products</a>
+            <div class="dropdown-content">
+                <a href="mens-products.html">Men's Products</a>
+                <a href="womens-products.html">Women's Products</a>
+                <a href="kids-products.html">Kid's / Teenager's Products</a>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu for About Us with internal page links -->
+        <div class="dropdown">
+            <a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="contact-us.html">Contact Us</a>
+                <a href="leave-a-review.html">Leave a Review</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">Company History</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Accounts</a>
+            <div class="dropdown-content">
+                <a href="profile.html">Profile</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="shoppingcart.html">Shopping Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome to your TipTop Soles Profile</h2>
+    </div>
+
+    <!-- Login and Sign Up Form Section -->
+    <section class="auth-section">
+        <!-- Sign In Form -->
+        <div id="login-form">
+            <h3>Sign In</h3>
+            <form id="login" action="login.html" method="POST">
+                <input type="email" id="login-email" name="email" placeholder="Email" required>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signup-form">
+            <h3>Sign Up</h3>
+            <form id="signup" action="signup.html" method="POST" onsubmit="return validatePassword()">
+                <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                <button type="submit">Create Account</button>
+            </form>
+            <p class="error" id="password-error"></p>
+        </div>
+    </section>
+
+    <!-- Footer Section with Social Media Links -->
+    <footer>
+        <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
+        <a href="policy.html"> Return Policy</a>
+
+        <!-- Social Media Icons -->
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram" style="color: #E4405F;"></i> <!-- Instagram original color -->
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f" style="color: #1877F2;"></i> <!-- Facebook original color -->
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i> <!-- Snapchat original color -->
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter" style="color: #1DA1F2;"></i> <!-- Twitter original color -->
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Function to validate password match in the Sign Up form
+        function validatePassword() {
+            var password = document.getElementById("signup-password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var errorMessage = document.getElementById("password-error");
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+                return false; // Prevent form submission
+            }
+
+            if (password.length < 6) {
+                errorMessage.textContent = "Password must be at least 6 characters long.";
+                return false; // Prevent form submission
+            }
+
+            errorMessage.textContent = ""; // Clear error message
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+
+</html>

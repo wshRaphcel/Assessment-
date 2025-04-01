@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - TipTop Soles</title>
+    <link rel="icon" href="images/TipTop Soles.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome CDN for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Your Wishlist</h1>
+        <p>Products you love and want to save for later!</p>
+        <a href="index.html">
+            <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+
+        <!-- Dropdown Menu for Products -->
+        <div class="dropdown">
+            <a href="#">Products</a>
+            <div class="dropdown-content">
+                <a href="mens-products.html">Men's Products</a>
+                <a href="womens-products.html">Women's Products</a>
+                <a href="kids-products.html">Kid's / Teenager's Products</a>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu for About Us with internal page links -->
+        <div class="dropdown">
+            <a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="contact-us.html">Contact Us</a>
+                <a href="leave-a-review.html">Leave a Review</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">Company History</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Accounts</a>
+            <div class="dropdown-content">
+                <a href="profile.html">Profile</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="shoppingcart.html">Shopping Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Products in Your Wishlist</h2>
+
+        <div id="wishlist-items">
+            <!-- Wishlist items will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Footer Section with Social Media Links -->
+    <footer>
+        <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
+        <a href="policy.html">Return Policy</a>
+
+        <!-- Social Media Icons -->
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram" style="color: #E4405F;"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f" style="color: #1877F2;"></i>
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Get the wishlist items from localStorage
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const wishlistItemsContainer = document.getElementById('wishlist-items');
+
+        if (wishlist.length === 0) {
+            wishlistItemsContainer.innerHTML = '<p>Your wishlist is empty. Add products to your wishlist from the product pages!</p>';
+        } else {
+            // Display all wishlist items
+            wishlist.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('wishlist-item');
+                itemElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Price: $${item.price}</p>
+                    <button class="remove-from-wishlist" data-index="${index}">Remove from Wishlist</button>
+                `;
+                wishlistItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Remove items from the wishlist
+        const removeButtons = document.querySelectorAll('.remove-from-wishlist');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.getAttribute('data-index');
+                
+                // Remove the item from the wishlist array
+                wishlist.splice(index, 1);
+
+                // Save the updated wishlist back to localStorage
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+                // Reload the wishlist to reflect changes
+                location.reload();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

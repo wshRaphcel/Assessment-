@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Products - TipTop Soles</title>
+    <link rel="icon" href="images/TipTop Soles.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome CDN for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Women's Selection of Products</h1>
+        <p>Your go-to place for quality shoes</p>
+        <a href="index.html">
+            <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+
+        <!-- Dropdown Menu for Products -->
+        <div class="dropdown">
+            <a href="#">Products</a>
+            <div class="dropdown-content">
+                <a href="mens-products.html">Men's Products</a>
+                <a href="womens-products.html">Women's Products</a>
+                <a href="kids-products.html">Kid's / Teenager's Products</a>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu for About Us with internal page links -->
+        <div class="dropdown">
+            <a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="contact-us.html">Contact Us</a>
+                <a href="leave-a-review.html">Leave a Review</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">Company History</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Accounts</a>
+            <div class="dropdown-content">
+                <a href="profile.html">Profile</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="shoppingcart.html">Shopping Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Explore Women's Shoes</h2>
+        <p>Browse our beautiful collection of women's shoes. Comfortable, elegant, and stylish!</p>
+        
+        <!-- Example of Women’s product listings with Add to Cart and Add to Wishlist buttons -->
+        <div class="product">
+            <h3>Product 1: Elegant Heels</h3>
+            <img class="shoes"  src="images/WOman shoes 3.png" alt="Elegant Heels">
+            <p>Classic heels perfect for evening wear or special events.</p>
+            <p>Price: 90</p>
+            <button class="add-to-cart" data-product="Elegant Heels" data-price="90">Add to Cart</button>
+            <button class="add-to-wishlist" data-product="Elegant Heels" data-price="90">Add to Wishlist</button>
+        </div>
+
+        <div class="product">
+            <h3>Product 2: Trendy Flats</h3>
+            <img class="shoes" src="images/Woman shoes 2.png" alt="Trendy Flats">
+            <p>Comfortable and chic heels for everyday use.</p>
+            <p>Price: $70</p>
+            <button class="add-to-cart" data-product="Trendy Flats" data-price="70">Add to Cart</button>
+            <button class="add-to-wishlist" data-product="Trendy Flats" data-price="70">Add to Wishlist</button>
+        </div>
+    </div>
+
+    <!-- Footer Section with Social Media Links -->
+    <footer>
+        <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
+        <a href="policy.html"> Return Policy</a>
+
+        <!-- Social Media Icons -->
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram" style="color: #E4405F;"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f" style="color: #1877F2;"></i>
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Get all "Add to Cart" buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Get all "Add to Wishlist" buttons
+        const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // Add event listeners to the Add to Cart buttons
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-product');
+                const productPrice = button.getAttribute('data-price');
+
+                // Add product to the cart array
+                cart.push({ name: productName, price: productPrice });
+
+                // Save the updated cart in localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Redirect to the shopping cart page
+                window.location.href = 'shoppingcart.html';
+            });
+        });
+
+        // Add event listeners to the Add to Wishlist buttons
+        addToWishlistButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-product');
+                const productPrice = button.getAttribute('data-price');
+
+                // Add product to the wishlist array
+                wishlist.push({ name: productName, price: productPrice });
+
+                // Save the updated wishlist in localStorage
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+                // Optional: Display a message to confirm the addition
+                alert(`${productName} has been added to your wishlist!`);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
