@@ -20,6 +20,7 @@
         <p>Your go-to place for quality shoes</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -56,28 +57,129 @@
         </div>
     </nav>
 
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <form id="search-form">
+            <input type="text" placeholder="Search..." name="query" required>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
     <div class="container">
         <h2>Explore Kid's / Teenager's Shoes</h2>
         <p>Find colorful, fun, and durable shoes for your little ones!</p>
         
-        <!-- Example of Kid’s product listings with Add to Cart and Add to Wishlist buttons -->
-        <div class="product">
-            <h3>Product 1: Famous Sneakers</h3>
-            <img class="shoes" src="images/Jordan4BlackCat.png" alt="Colorful Sneakers">
-            <p>Sober while remaining fashionable!</p>
-            <p>Price: $90</p>
-            <button class="add-to-cart" data-product="Colorful Sneakers" data-price="90">Add to Cart</button>
-            <button class="add-to-wishlist" data-product="Colorful Sneakers" data-price="90">Add to Wishlist</button>
+        <!-- Product Layout -->
+        <div class="product-list">
+
+            <!-- Product 1 -->
+            <div class="product">
+                <h3 id="product-name-1">Salomon XT-6</h3>
+                <img id="product-img-1" class="shoes" src="images/SalomonBlack.png" alt="Salomon XT-6 Sneakers">
+                <p>Rugged trail sneakers with technical design and superior cushioning.</p>
+                <p>Price: $300</p>
+                <div class="color-options">
+                    <label>Choose Color:</label>
+                    <button onclick="changeShoeColor(1, 'black')">Black</button>
+                    <button onclick="changeShoeColor(1, 'white')">White</button>
+                    <button onclick="changeShoeColor(1, 'cream')">Cream</button>
+                </div>
+                <!-- Add to Cart and Add to Wishlist buttons -->
+                <div class="button-group">
+                    <button class="add-to-cart" data-product="Salomon XT-6" data-price="300">Add to
+                        Cart</button>
+                    <button class="add-to-wishlist" data-product="Salomon XT-6" data-price="300">Add to
+                        Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <h3 id="product-name-2">TN</h3>
+                <img id="product-img-2" class="shoes" src="images/TNBlack.png" alt="Comfort Running Shoes">
+                <p>Bold, wavy design with Tuned Air cushioning for streetwear impact.</p>
+                <p>Price: $250</p>
+                <div class="color-options">
+                    <label>Choose Color:</label>
+                    <button onclick="changeShoeColor(2, 'black')">Black</button>
+                    <button onclick="changeShoeColor(2, 'white')">White</button>
+                    <button onclick="changeShoeColor(2, 'shark')">Shark</button>
+                </div>
+                <!-- Add to Cart and Add to Wishlist buttons -->
+                <div class="button-group">
+                    <button class="add-to-cart" data-product="TN" data-price="250">Add to Cart</button>
+                    <button class="add-to-wishlist" data-product="TN" data-price="250">Add to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <h3 id="product-name-3">Nike Dunk Low Retro</h3>
+                <img id="product-img-3" class="shoes" src="images/NikeDunkLowRetroBlack.png"
+                    alt="Nike Dunk Low Retro Sneakers">
+                <p>Classic low-top basketball shoe with timeless style and comfort.</p>
+                <p>Price: $160</p>
+                <div class="color-options">
+                    <label>Choose Color:</label>
+                    <button onclick="changeShoeColor(3, 'black')">Black</button>
+                    <button onclick="changeShoeColor(3, 'gray')">Gray</button>
+                    <button onclick="changeShoeColor(3, 'blue')">Blue</button>
+                </div>
+                <!-- Add to Cart and Add to Wishlist buttons -->
+                <div class="button-group">
+                    <button class="add-to-cart" data-product="Nike Dunk Low Retro" data-price="160">Add to
+                        Cart</button>
+                    <button class="add-to-wishlist" data-product="Nike Dunk Low Retro" data-price="160">Add to
+                        Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+                <h3 id="product-name-4">New Balance 2002R</h3>
+                <img id="product-img-4" class="shoes" src="images/NewBalance2002RBlack.png"
+                    alt="New Balance 2002R Black Sneakers">
+                <p>Retro-inspired runner with premium materials and great everyday support.</p>
+                <p>Price: $190</p>
+                <div class="color-options">
+                    <label>Choose Color:</label>
+                    <button onclick="changeShoeColor(4, 'black')">Black</button>
+                    <button onclick="changeShoeColor(4, 'cream')">Cream</button>
+                    <button onclick="changeShoeColor(4, 'pink')">Pink</button>
+                </div>
+                <!-- Add to Cart and Add to Wishlist buttons -->
+                <div class="button-group">
+                    <button class="add-to-cart" data-product="New Balance 2002R" data-price="190">Add to
+                        Cart</button>
+                    <button class="add-to-wishlist" data-product="New Balance 2002R" data-price="190">Add to
+                        Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product">
+                <h3 id="product-name-5">Asics Gel NYC</h3>
+                <img id="product-img-5" class="shoes" src="images/AsicsGel-NYCBlack.png"
+                    alt="Asics Gel NYC Black Sneakers">
+                <p>Hybrid sneaker blending modern comfort with retro running aesthetics.</p>
+                <p>Price: $220</p>
+                <div class="color-options">
+                    <label>Choose Color:</label>
+                    <button onclick="changeShoeColor(5, 'black')">Black</button>
+                    <button onclick="changeShoeColor(5, 'white')">White</button>
+                    <button onclick="changeShoeColor(5, 'blue')">Blue</button>
+                </div>
+                <!-- Add to Cart and Add to Wishlist buttons -->
+                <div class="button-group">
+                    <button class="add-to-cart" data-product="Asics Gel NYC" data-price="220">Add to
+                        Cart</button>
+                    <button class="add-to-wishlist" data-product="Asics Gel NYC" data-price="220">Add to
+                        Wishlist</button>
+                </div>
+            </div>
+
         </div>
 
-        <div class="product">
-            <h3>Product 2: Comfortable Sneakers</h3>
-            <img class="shoes" src="images/TN BLANCHE.png" alt="Comfortable Shoes">
-            <p>Perfect for summer days. Easy to slip on and off.</p>
-            <p>Price: $95</p>
-            <button class="add-to-cart" data-product="Comfortable Sandals" data-price="95">Add to Cart</button>
-            <button class="add-to-wishlist" data-product="Comfortable Sandals" data-price="95">Add to Wishlist</button>
-        </div>
     </div>
 
     <!-- Footer Section with Social Media Links -->
@@ -102,49 +204,154 @@
         </div>
     </footer>
 
+    <!-- JavaScript for Color Changing, Cart, and Wishlist -->
     <script>
-        // Get all "Add to Cart" buttons
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Function for changing the color of the product image and the name
+        function changeShoeColor(productId, color) {
+            let imgPath = '';
+            let shoeName = '';
 
-        // Get all "Add to Wishlist" buttons
-        const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
-        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            switch (productId) {
+                case 1:
+                    if (color === 'black') {
+                        imgPath = 'images/SalomonBlack.png';
+                        shoeName = 'Salomon XT-6';
+                    }
+                    if (color === 'white') {
+                        imgPath = 'images/SalomonWhite.png';
+                        shoeName = 'Salomon XT-6';
+                    }
+                    if (color === 'cream') {
+                        imgPath = 'images/SalomonCream.png';
+                        shoeName = 'Salomon XT-6';
+                    }
+                    break;
+                case 2:
+                    if (color === 'black') {
+                        imgPath = 'images/TNBlack.png';
+                        shoeName = 'TN';
+                    }
+                    if (color === 'white') {
+                        imgPath = 'images/TNWhite.png';
+                        shoeName = 'TN';
+                    }
+                    if (color === 'shark') {
+                        imgPath = 'images/TNShark.png';
+                        shoeName = 'TN';
+                    }
+                    break;
+                case 3:
+                    if (color === 'black') {
+                        imgPath = 'images/NikeDunkLowRetroBlack.png';
+                        shoeName = 'Nike Dunk Low Retro';
+                    }
+                    if (color === 'gray') {
+                        imgPath = 'images/NikeDunkLowRetroGray.png';
+                        shoeName = 'Nike Dunk Low Retro';
+                    }
+                    if (color === 'blue') {
+                        imgPath = 'images/NikeDunkLowRetroBlue.png';
+                        shoeName = 'Nike Dunk Low Retro';
+                    }
+                    break;
+                case 4:
+                    if (color === 'black') {
+                        imgPath = 'images/NewBalance2002RBlack.png';
+                        shoeName = 'New Balance 2002R';
+                    }
+                    if (color === 'cream') {
+                        imgPath = 'images/NewBalance2002RCream.png';
+                        shoeName = 'Casual City Shoes';
+                    }
+                    if (color === 'pink') {
+                        imgPath = 'images/NewBalance2002RPink.png';
+                        shoeName = 'Casual City Shoes';
+                    }
+                    break;
+                case 5:
+                    if (color === 'black') {
+                        imgPath = 'images/AsicsGel-NYCBlack.png';
+                        shoeName = 'Asics Gel NYC';
+                    }
+                    if (color === 'white') {
+                        imgPath = 'images/AsicsGel-NYCWhite.png';
+                        shoeName = 'Asics Gel NYC';
+                    }
+                    if (color === 'blue') {
+                        imgPath = 'images/AsicsGel-NYCBlue.png';
+                        shoeName = 'Asics Gel NYC';
+                    }
+                    break;
+            }
 
-        // Add event listeners to the Add to Cart buttons
-        addToCartButtons.forEach(button => {
+            // Update the image and name
+            document.getElementById(`product-img-${productId}`).src = imgPath;
+            document.getElementById(`product-name-${productId}`).textContent = shoeName;
+        }
+
+        // Handle Add to Cart and Add to Wishlist
+        document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', () => {
                 const productName = button.getAttribute('data-product');
                 const productPrice = button.getAttribute('data-price');
 
-                // Add product to the cart array
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.push({ name: productName, price: productPrice });
-
-                // Save the updated cart in localStorage
                 localStorage.setItem('cart', JSON.stringify(cart));
 
-                // Redirect to the shopping cart page
+                // Redirect to shopping cart page
                 window.location.href = 'shoppingcart.html';
             });
         });
 
-        // Add event listeners to the Add to Wishlist buttons
-        addToWishlistButtons.forEach(button => {
+        document.querySelectorAll('.add-to-wishlist').forEach(button => {
             button.addEventListener('click', () => {
                 const productName = button.getAttribute('data-product');
                 const productPrice = button.getAttribute('data-price');
 
-                // Add product to the wishlist array
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
                 wishlist.push({ name: productName, price: productPrice });
-
-                // Save the updated wishlist in localStorage
                 localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-                // Optional: Display a message to confirm the addition
+                // Optional: Display confirmation alert
                 alert(`${productName} has been added to your wishlist!`);
             });
         });
+
+        // Script to handle search redirection
+        document.getElementById("search-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+            const input = this.query.value.trim().toLowerCase();
+
+            // Map keywords to their corresponding page URLs
+            const pageMap = {
+                "men": "mens-products.html",
+                "men's": "mens-products.html",
+                "mens": "mens-products.html",
+                "women": "womens-products.html",
+                "women's": "womens-products.html",
+                "womens": "womens-products.html",
+                "kids": "kids-products.html",
+                "teen": "kids-products.html",
+                "profile": "profile.html",
+                "cart": "shoppingcart.html",
+                "wishlist": "wishlist.html",
+                "faq": "faq.html",
+                "review": "leave-a-review.html",
+                "contact": "contact-us.html",
+                "about": "about.html",
+                "policy": "policy.html"
+            };
+
+            // Redirect to the corresponding page if the keyword matches
+            if (pageMap[input]) {
+                window.location.href = pageMap[input];
+            } else {
+                alert("Page not found for: " + input);
+            }
+        });
     </script>
+
 </body>
 
 </html>

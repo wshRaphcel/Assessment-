@@ -10,7 +10,6 @@
 
     <!-- Font Awesome CDN for Social Media Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 
 <body>
@@ -21,6 +20,7 @@
         <p>Few Information About Us</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -57,6 +57,14 @@
         </div>
     </nav>
 
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <form id="search-form">
+            <input type="text" placeholder="Search..." name="query" required>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
     <!-- Horizontal Quick Links Section -->
     <div class="about-options">
         <a href='contact-us.html'>Contact Us</a>
@@ -67,7 +75,7 @@
     <!-- Main Content Section -->
     <div class="container">
         <h2>About TipTop Soles</h2>
-        <p>The Creation of TipTop Soles: </p>
+        <p>The Creation of TipTop Soles:</p>
         <p>TipTop Soles was born out of a simple idea: to offer shoes that combine style, comfort, and quality for the
             entire family.</p>
 
@@ -81,29 +89,64 @@
         <p>Our mission is simple: to help you find the perfect pair of shoes that make you feel confident and
             comfortable every step of the way. At TipTop Soles, we are more than just a shoe store—we’re a brand that
             cares about every step you take.</p>
+    </div>
 
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
+        <a href="policy.html">Return Policy</a>
 
-        <!-- Footer Section -->
-        <footer>
-            <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
-            <a href="policy.html"> Return Policy</a>
+        <!-- Social Media Icons -->
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram" style="color: #E4405F;"></i> <!-- Instagram original color -->
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f" style="color: #1877F2;"></i> <!-- Facebook original color -->
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i> <!-- Snapchat original color -->
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter" style="color: #1DA1F2;"></i> <!-- Twitter original color -->
+            </a>
+        </div>
+    </footer>
 
-            <!-- Social Media Icons -->
-            <div class="social-media-icons">
-                <a href="https://www.instagram.com" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram" style="color: #E4405F;"></i> <!-- Instagram original color -->
-                </a>
-                <a href="https://www.facebook.com" target="_blank" class="social-icon">
-                    <i class="fab fa-facebook-f" style="color: #1877F2;"></i> <!-- Facebook original color -->
-                </a>
-                <a href="https://www.snapchat.com" target="_blank" class="social-icon">
-                    <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i> <!-- Snapchat original color -->
-                </a>
-                <a href="https://www.twitter.com" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter" style="color: #1DA1F2;"></i> <!-- Twitter original color -->
-                </a>
-            </div>
-        </footer>
+    <!-- Script to handle search redirection -->
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+            const input = this.query.value.trim().toLowerCase();
+
+            // Liste des mots-clés et des pages associées
+            const pageMap = {
+                "men": "mens-products.html",
+                "men's": "mens-products.html",
+                "mens": "mens-products.html",
+                "women": "womens-products.html",
+                "women's": "womens-products.html",
+                "womens": "womens-products.html",
+                "kids": "kids-products.html",
+                "teen": "kids-products.html",
+                "profile": "profile.html",
+                "cart": "shoppingcart.html",
+                "wishlist": "wishlist.html",
+                "faq": "faq.html",
+                "review": "leave-a-review.html",
+                "contact": "contact-us.html",
+                "about": "about.html",
+                "policy": "policy.html"
+            };
+
+            // Si le mot-clé existe dans le tableau, redirige
+            if (pageMap[input]) {
+                window.location.href = pageMap[input];
+            } else {
+                alert("Aucune page trouvée pour : " + input);
+            }
+        });
+    </script>
 
 </body>
 

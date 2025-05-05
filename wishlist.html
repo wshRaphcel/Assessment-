@@ -20,6 +20,7 @@
         <p>Products you love and want to save for later!</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -53,6 +54,13 @@
                 <a href="wishlist.html">Wishlist</a>
                 <a href="shoppingcart.html">Shopping Cart</a>
             </div>
+        </div>
+        <!-- Search Bar Section -->
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" placeholder="Search..." name="query" required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
         </div>
     </nav>
 
@@ -112,7 +120,7 @@
         removeButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const index = e.target.getAttribute('data-index');
-                
+
                 // Remove the item from the wishlist array
                 wishlist.splice(index, 1);
 
@@ -122,6 +130,41 @@
                 // Reload the wishlist to reflect changes
                 location.reload();
             });
+        });
+    </script>
+
+        <!-- Script to handle search redirection -->
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            const input = this.query.value.trim().toLowerCase();
+
+            // Map keywords to their corresponding page URLs
+            const pageMap = {
+                "men": "mens-products.html",
+                "men's": "mens-products.html",
+                "mens": "mens-products.html",
+                "women": "womens-products.html",
+                "women's": "womens-products.html",
+                "womens": "womens-products.html",
+                "kids": "kids-products.html",
+                "teen": "kids-products.html",
+                "profile": "profile.html",
+                "cart": "shoppingcart.html",
+                "wishlist": "wishlist.html",
+                "faq": "faq.html",
+                "review": "leave-a-review.html",
+                "contact": "contact-us.html",
+                "about": "about.html",
+                "policy": "policy.html"
+            };
+
+            // Redirect to the corresponding page if the keyword matches
+            if (pageMap[input]) {
+                window.location.href = pageMap[input];
+            } else {
+                alert("Page not found for: " + input);
+            }
         });
     </script>
 

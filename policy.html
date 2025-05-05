@@ -17,9 +17,10 @@
     <!-- Header Section -->
     <header>
         <h1>TipTop Soles | House of Sneakers</h1>
-        <p>Your go-to place for quality shoes</p>
+        <p>Your Policy Page</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -55,10 +56,32 @@
             </div>
         </div>
     </nav>
-    <p>Here are the Policy</p>
+
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <form id="search-form">
+            <input type="text" placeholder="Search..." name="query" required>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <h2>Return Policy</h2>
+        <p>We at TipTop Soles strive to provide the best shopping experience. Here’s our return policy:</p>
+        <ul>
+            <li>We accept returns within 30 days of purchase.</li>
+            <li>Items must be in original condition and packaging.</li>
+            <li>Return shipping fees are the responsibility of the customer.</li>
+            <li>For defective or damaged items, we offer full refunds.</li>
+        </ul>
+        <p>If you have any questions, feel free to contact us!</p>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
-        <a href="policy.html"> Return Policy</a>
+        <a href="policy.html">Return Policy</a>
 
         <!-- Social Media Icons -->
         <div class="social-media-icons">
@@ -76,6 +99,41 @@
             </a>
         </div>
     </footer>
+
+    <!-- Script to handle search redirection -->
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            const input = this.query.value.trim().toLowerCase();
+
+            // Map keywords to their corresponding page URLs
+            const pageMap = {
+                "men": "mens-products.html",
+                "men's": "mens-products.html",
+                "mens": "mens-products.html",
+                "women": "womens-products.html",
+                "women's": "womens-products.html",
+                "womens": "womens-products.html",
+                "kids": "kids-products.html",
+                "teen": "kids-products.html",
+                "profile": "profile.html",
+                "cart": "shoppingcart.html",
+                "wishlist": "wishlist.html",
+                "faq": "faq.html",
+                "review": "leave-a-review.html",
+                "contact": "contact-us.html",
+                "about": "about.html",
+                "policy": "policy.html"
+            };
+
+            // Redirect to the corresponding page if the keyword matches
+            if (pageMap[input]) {
+                window.location.href = pageMap[input];
+            } else {
+                alert("Page not found for: " + input);
+            }
+        });
+    </script>
 
 </body>
 

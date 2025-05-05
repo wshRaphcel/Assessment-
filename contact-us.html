@@ -20,6 +20,7 @@
         <p>We'd love to hear from you!</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -56,11 +57,18 @@
         </div>
     </nav>
 
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <form id="search-form">
+            <input type="text" placeholder="Search..." name="query" required>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
     <!-- Main Content Section -->
     <div class="container">
         <h2>Contact Us</h2>
-        <p>If you have any questions, concerns, or need assistance, feel free to reach out to us. We're here to help!
-        </p>
+        <p>If you have any questions, concerns, or need assistance, feel free to reach out to us. We're here to help!</p>
 
         <h3>Get in Touch</h3>
         <p>Email: support@tiptopsoles.com</p>
@@ -85,7 +93,7 @@
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
-        <a href="policy.html"> Return Policy</a>
+        <a href="policy.html">Return Policy</a>
 
         <!-- Social Media Icons -->
         <div class="social-media-icons">
@@ -103,6 +111,41 @@
             </a>
         </div>
     </footer>
+
+    <!-- Script to handle search redirection -->
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+            const input = this.query.value.trim().toLowerCase();
+
+            // Liste des mots-clés et des pages associées
+            const pageMap = {
+                "men": "mens-products.html",
+                "men's": "mens-products.html",
+                "mens": "mens-products.html",
+                "women": "womens-products.html",
+                "women's": "womens-products.html",
+                "womens": "womens-products.html",
+                "kids": "kids-products.html",
+                "teen": "kids-products.html",
+                "profile": "profile.html",
+                "cart": "shoppingcart.html",
+                "wishlist": "wishlist.html",
+                "faq": "faq.html",
+                "review": "leave-a-review.html",
+                "contact": "contact-us.html",
+                "about": "about.html",
+                "policy": "policy.html"
+            };
+
+            // Si le mot-clé existe dans le tableau, redirige
+            if (pageMap[input]) {
+                window.location.href = pageMap[input];
+            } else {
+                alert("Aucune page trouvée pour : " + input);
+            }
+        });
+    </script>
 
 </body>
 

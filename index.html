@@ -20,6 +20,7 @@
         <p>Your go-to place for quality shoes</p>
         <a href="index.html">
             <img class="logo" src="images/TipTop Soles.png" alt="Logo">
+        </a>
     </header>
 
     <!-- Navigation Section -->
@@ -54,6 +55,14 @@
                 <a href="shoppingcart.html">Shopping Cart</a>
             </div>
         </div>
+
+        <!-- Search Bar Section -->
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" placeholder="Search..." name="query" required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
     </nav>
 
     <div class="container">
@@ -64,49 +73,89 @@
         <h3>Explore Our Products</h3>
         <div class="product-category">
             <!-- Men's Products -->
-            <div>
-                <h4><a href="mens-products.html">Men's Products</a></h4>
-                <img src="images/ProffesionalMenShoes.jpg" alt="Men's Shoes">
-                <p>Explore a wide range of stylish and comfortable shoes for men.</p>
-            </div>
+            <a href="mens-products.html">
+                <div class="product-card">
+                    <h4>Men's Products</h4>
+                    <img src="images/SalomonBlack.png" alt="Men's Shoes">
+                    <p>Explore a wide range of stylish and comfortable shoes for men.</p>
+                </div>
+            </a>
 
             <!-- Women's Products -->
-            <div>
-                <h4><a href="womens-products.html">Women's Products</a></h4>
-                <img src="images/WOman shoes 3.png" alt="Women's Shoes">
-                <p>Step into elegance and comfort with our women's shoe collection.</p>
-            </div>
+            <a href="womens-products.html">
+                <div class="product-card">
+                    <h4>Women's Products</h4>
+                    <img src="images/AsicsGel-1130Cream.png" alt="Women's Shoes">
+                    <p>Step into elegance and comfort with our women's shoe collection.</p>
+                </div>
+            </a>
 
             <!-- Kids' Products -->
-            <div>
-                <h4><a href="kids-products.html">Kid's / Teenager's Products</a></h4>
-                <img class="shoes" src="images/Jordan4BlackCat.png" alt="Kids' Shoes">
-                <p>Fun, colorful, and durable shoes for your Kid's or Teenager's ones.</p>
+            <a href="kids-products.html">
+                <div class="product-card">
+                    <h4>Kid's / Teenager's Products</h4>
+                    <img class="shoes" src="images/TNBlack.png" alt="Kids' Shoes">
+                    <p>Fun, colorful, and durable shoes for your Kid's or Teenager's ones.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Footer Section with Social Media Links -->
+        <footer>
+            <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
+            <a href="policy.html">Return Policy</a>
+
+            <!-- Social Media Icons -->
+            <div class="social-media-icons">
+                <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram" style="color: #E4405F;"></i> <!-- Instagram original color -->
+                </a>
+                <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f" style="color: #1877F2;"></i> <!-- Facebook original color -->
+                </a>
+                <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                    <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i> <!-- Snapchat original color -->
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter" style="color: #1DA1F2;"></i> <!-- Twitter original color -->
+                </a>
             </div>
-        </div>
-    </div>
+        </footer>
 
-    <!-- Footer Section with Social Media Links -->
-    <footer>
-        <p>&copy; 2025 TipTop Soles. All rights reserved.</p>
-        <a href="policy.html"> Return Policy</a>
+        <!-- Script to handle search redirection -->
+        <script>
+            document.getElementById("search-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Empêche la soumission du formulaire
+                const input = this.query.value.trim().toLowerCase();
 
-        <!-- Social Media Icons -->
-        <div class="social-media-icons">
-            <a href="https://www.instagram.com" target="_blank" class="social-icon">
-                <i class="fab fa-instagram" style="color: #E4405F;"></i> <!-- Instagram original color -->
-            </a>
-            <a href="https://www.facebook.com" target="_blank" class="social-icon">
-                <i class="fab fa-facebook-f" style="color: #1877F2;"></i> <!-- Facebook original color -->
-            </a>
-            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
-                <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i> <!-- Snapchat original color -->
-            </a>
-            <a href="https://www.twitter.com" target="_blank" class="social-icon">
-                <i class="fab fa-twitter" style="color: #1DA1F2;"></i> <!-- Twitter original color -->
-            </a>
-        </div>
-    </footer>
+                // Liste des mots-clés et des pages associées
+                const pageMap = {
+                    "men": "mens-products.html",
+                    "men's": "mens-products.html",
+                    "mens": "mens-products.html",
+                    "women": "womens-products.html",
+                    "women's": "womens-products.html",
+                    "womens": "womens-products.html",
+                    "kids": "kids-products.html",
+                    "teen": "kids-products.html",
+                    "profile": "profile.html",
+                    "cart": "shoppingcart.html",
+                    "wishlist": "wishlist.html",
+                    "faq": "faq.html",
+                    "review": "leave-a-review.html",
+                    "contact": "contact-us.html",
+                    "about": "about.html",
+                    "policy": "policy.html"
+                };
+
+                // Si le mot-clé existe dans le tableau, redirige
+                if (pageMap[input]) {
+                    window.location.href = pageMap[input];
+                } else {
+                    alert("Aucune page trouvée pour : " + input);
+                }
+            });
+        </script>
 
 </body>
 
