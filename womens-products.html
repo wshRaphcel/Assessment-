@@ -264,21 +264,32 @@
             document.getElementById(`product-name-${productId}`).textContent = shoeName;
         }
 
-        // Function to add items to the cart
+        // Handle Add to Cart and Add to Wishlist
         document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', () => {
                 const productName = button.getAttribute('data-product');
                 const productPrice = button.getAttribute('data-price');
-                alert(`Added ${productName} to cart for $${productPrice}`);
+
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({ name: productName, price: productPrice });
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Redirect to shopping cart page
+                window.location.href = 'shoppingcart.html';
             });
         });
 
-        // Function to add items to the wishlist
         document.querySelectorAll('.add-to-wishlist').forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', () => {
                 const productName = button.getAttribute('data-product');
                 const productPrice = button.getAttribute('data-price');
-                alert(`Added ${productName} to wishlist for $${productPrice}`);
+
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                wishlist.push({ name: productName, price: productPrice });
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+                // Optional: Display confirmation alert
+                alert(`${productName} has been added to your wishlist!`);
             });
         });
         // Script to handle search redirection
